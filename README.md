@@ -1,51 +1,66 @@
 
-# 🎯 Multi-Modal Recommendation System (Hybrid Model)
+# 🎯 Multi-Modal Recommendation System (Hybrid Approaches)
 
-This project implements a hybrid recommendation system that utilizes both user interaction data and content features to suggest relevant items to users. 
+This project implements a hybrid recommendation system using three different modeling approaches. It combines user interaction data with item content (movie genres) to generate personalized recommendations.
 
 ## 📊 Dataset
 - **MovieLens 100K** dataset
-- Includes user ratings and item metadata (genres)
+- Contains 100,000 user-item ratings and genre metadata
 
-## 🧠 Model Approach
-- **Collaborative Filtering**: Autoencoder-based model learns user-item interaction patterns
-- **Content-Based Filtering**: Uses cosine similarity on genre features
-- **Hybrid Score**: Weighted combination of both methods
+## 🧠 Implemented Models
+This project explores three different hybrid recommendation approaches:
 
-## 🧊 Cold Start Strategy
-- Popularity-based recommendation for new users/items
+### 1. Autoencoder-Based Hybrid (PyTorch)
+- Learns latent user-item interaction patterns via deep neural networks
+- Combines with content-based (genre) similarity
+- Notebook: `Hybrid_RecSystem_Autoencoder.ipynb`
+
+### 2. LightFM-Based Hybrid
+- Uses matrix factorization with user/item metadata
+- Efficient and interpretable model
+- Notebook: `Hybrid_RecSysTem_LightFM.ipynb`
+
+### 3. Surprise + Genre-Based Hybrid
+- Traditional collaborative filtering (SVD)
+- Enriched with content similarity from genres
+- Notebook: `Hybrid_RecSystem_Surprise.ipynb`
+
+## ⚙️ How to Run
+1. Install required packages:
+```bash
+pip install -r requirements.txt
+```
+
+2. Open each notebook in Jupyter or VS Code and run all cells:
+```bash
+jupyter notebook Hybrid_RecSystem_Autoencoder.ipynb
+jupyter notebook Hybrid_RecSysTem_LightFM.ipynb
+jupyter notebook Hybrid_RecSystem_Surprise.ipynb
+```
+
+## 🧊 Cold-Start Strategy
+- For new users or items, fallback to popularity-based or genre similarity recommendations
 
 ## 📈 Evaluation Metrics
 - Precision@10
 - NDCG@10
 
 ## 🚀 Scalability
-- Use FAISS/Annoy for approximate nearest neighbor search
-- Redis for storing embeddings
-- Microservices architecture for modular deployment
-- Distributed training with PySpark or Dask
+- Approximate Nearest Neighbors: FAISS or Annoy
+- Real-time embedding storage: Redis
+- Distributed training: PySpark or Dask
+- Microservices architecture for CF/CB separation
 
-## 📁 Project Structure
+## 📁 Folder Structure
 ```
 📂 MultiModal_Recommendation_System
-├── hybrid_recommender_pytorch_auto.ipynb
+├── Hybrid_RecSystem_Autoencoder.ipynb
+├── Hybrid_RecSysTem_LightFM.ipynb
+├── Hybrid_RecSystem_Surprise.ipynb
+├── Hybrid_Recommendation_Full_Report.pdf
 ├── requirements.txt
-├── report.pdf
 └── README.md
 ```
-
-## 📌 How to Run
-1. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
-2. Open the notebook and run:
-```bash
-jupyter notebook hybrid_recommender_pytorch_auto.ipynb
-```
-
-## 📃 License
-MIT License
 
 ## 👩‍💻 Author
 Savita Gond
